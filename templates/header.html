@@ -4,20 +4,80 @@
     <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
-  <div class="header">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand pagetitle" href="/">Migrate</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="form">Submit</a>
-            </li>
-          </ul>
-          <button class="btn navbar-text">Sign In</button>
-        </div>
-      </nav>
-  </div>
+  <body>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=131352080881294';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+      window.fbAsyncInit = function() {
+              FB.init({
+              appId: '378062065973714',
+              status: true,
+              cookie: true,
+              xfbml: true
+          });
+      };
+
+      // Load the SDK asynchronously
+      (function(d){
+      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      ref.parentNode.insertBefore(js, ref);
+      }(document));
+
+      function login() {
+          FB.login(function(response) {
+            if (response.authResponse) {
+              console.log('Welcome!  Fetching your information.... ');
+              FB.api('/me', function(response) {
+                console.log('Good to see you, ' + response.name + '.');
+              });
+            } else {
+
+                // handle the response
+                console.log("Response goes here!");
+
+              }
+          }, {scope: 'read_stream,publish_stream,publish_actions,read_friendlists'});            
+      }
+
+      function logout() {
+          FB.logout(function(response) {
+            // user is now logged out
+          });
+      }
+
+      var status = FB.getLoginStatus();
+
+      console.log(status);
+
+    </script>
+    <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand pagetitle" href="/">Migrate</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="form">Submit</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="trips">Trips</a>
+              </li>
+            </ul>
+            <div class="fb-login-button" data-width="15" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" onclick="javascript:login();"></div>
+          </div>
+        </nav>
+    </div>
+  </body>
 </html>

@@ -1,0 +1,36 @@
+<html>
+ <head>
+  <title>Trips</title>
+ <link rel="stylesheet" type="text/css" href="/static/style.css">
+ <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script> 
+   $(document).ready(function(){
+    $("#renderHeader").load("header"); 
+  });
+</script>
+  </head>
+ <body>
+   <div id="container">
+     <div id="renderHeader"></div>
+     <div class="pagetitle">
+       <h1>Trips</h1>
+       <table>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Earliest Leave</th>
+          <th>Latest Leave</th>
+        </tr>
+        {% for trip in trips %}
+          <tr>
+            <td>{{trip.username}}</td>
+            <td>{{trip.date}}</td>
+            <td>{{trip.time_earliest}}</td>
+            <td>{{trip.time_latest}}</td>
+          </tr>
+        {% endfor %}
+     </div>
+   </div>
+ </body>
+</html>
