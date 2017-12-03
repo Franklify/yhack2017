@@ -2,9 +2,17 @@
   <head>
     <title>Submit a form</title>
    <link rel="stylesheet" type="text/css" href="/static/style.css">
+   <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script> 
+     $(document).ready(function(){
+      $("#renderHeader").load("header"); 
+    });
+  </script>
   </head>
   <body>
     <div id="container">
+      <div id="renderHeader"></div>
       <div class="pagetitle">
         <h1>Submit a form</h1>
       </div>
@@ -14,8 +22,12 @@
           <input type="text" name="name"><br />
           <label for="email">Email address:</label>
           <input type="email" name="email"><br />
-          <label for="site_url">Website URL:</label>
-          <input type="url" name="site_url"><br />
+          <label for="date">Flight Date:</label>
+          <input type="date" name="date"><br />
+          <label for="time_earliest">Earliest Departure Time:</label>
+          <input type="time" name="time_earliest"><br />
+          <label for="time_latest">Latest Departure Time:</label>
+          <input type="time" name="time_latest"><br />
           <label for="comments">Comments:</label>
           <textarea name="comments"></textarea><br />
           <input type="submit">
