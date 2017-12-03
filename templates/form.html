@@ -1,9 +1,49 @@
 <html>
   <head>
-    <title>Submit a form</title>
+    <title>Submit asfgasdgd form</title>
    <link rel="stylesheet" type="text/css" href="/static/style.css">
   </head>
   <body>
+    <script>
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+
+  window.fbAsyncInit = function() {
+    FB.init({
+
+
+FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    console.log('Logged in.');
+  }
+  else {
+    FB.login();
+  }
+});
+
+
+      appId      : '{378062065973714}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{latest-api-version}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
     <div id="container">
       <div class="pagetitle">
         <h1>Submit a form</h1>

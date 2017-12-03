@@ -1,0 +1,65 @@
+<div id="fb-root"></div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=131352080881294';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+        <script>
+        window.fbAsyncInit = function() {
+                FB.init({
+                appId: '378062065973714',
+                status: true,
+                cookie: true,
+                xfbml: true
+            });
+        };
+
+        // Load the SDK asynchronously
+        (function(d){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        ref.parentNode.insertBefore(js, ref);
+        }(document));
+
+        function login() {
+            FB.login(function(response) {
+              if (response.authResponse) {
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function(response) {
+                  console.log('Good to see you, ' + response.name + '.');
+                });
+              } else {
+
+                  // handle the response
+                  console.log("Response goes here!");
+
+                }
+            }, {scope: 'read_stream,publish_stream,publish_actions,read_friendlists'});            
+        }
+
+        function logout() {
+            FB.logout(function(response) {
+              // user is now logged out
+            });
+        }
+
+        var status = FB.getLoginStatus();
+
+        console.log(status);
+
+        </script>
+
+        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
+
+        <button onclick="javascript:login();">Login Facebook</button>
+
+        <br>
+
+        <button onclick="javascript:logout();">Logout from Facebook</button>
