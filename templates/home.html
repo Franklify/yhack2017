@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Migrate</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <script> 
+    $(document).ready(function(){
+      $("#renderHeader").load("header"); 
+    });
+
+    var video = document.getElementById("myVideo");
+    var btn = document.getElementById("myBtn");
+
+    function myFunction() {
+      if (video.paused) {
+        video.play();
+        btn.innerHTML = "Pause";
+      } else {
+        video.pause();
+        btn.innerHTML = "Play";
+      }
+    }
+  </script>
+  <body>
+     <video autoplay muted loop id="myVideo">
+      <source src="static/driving_footage.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="container">
+        <div id="renderHeader"></div>
+ 
+        <div class="col-lg-5 pagetext">
+            <h1>Rideshare Smarter</h1>
+            <p class="lead"></p>
+            <p><a class="btn btn-lg btn-success" href="form" role="button">Submit a Migration!</a>
+            </p>
+        </div>
+ 
+        <div class="row marketing pagetext bg-dark">
+            <div class="col-lg-6 content">
+                <h4>Welcome to Migrate</h4>
+                <p>Migrate is a platform for college students to coordinate smart airport ride sharing.</p>
+
+                <h4>Step 1. Give Your Travel Plans</h4>
+                <p>Provide Migrate with the day you plan to fly out of an airport near campus, as well as the earliest and latest times in the day you can leave.</p>
+ 
+                <h4>Step 2. Merge and Coordinate!</h4>
+                <p>Migrate will alert you whenever another student has an overlapping shared ride with you. When at most 6 people match, a groupchat will start and you can take it from there!</p>
+            </div>
+        </div>
+ 
+        <footer class="footer">
+            <p>&copy; Franklin Dev.</p>
+        </footer>
+ 
+    </div>
+</body>
+</html>
